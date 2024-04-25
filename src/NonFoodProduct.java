@@ -1,7 +1,8 @@
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class NonFoodProduct extends Product{
     Double[] prices;
@@ -10,7 +11,6 @@ public class NonFoodProduct extends Product{
         super(name);
         this.prices = prices;
     }
-
     public static NonFoodProduct fromCsv(Path path) {
         String name;
         Double[] prices;
@@ -23,6 +23,7 @@ public class NonFoodProduct extends Product{
                     .map(value -> value.replace(",",".")) // zamieniam polski znak ułamka dziesiętnego - przecinek na kropkę
                     .map(Double::valueOf) // konwertuję string na double
                     .toArray(Double[]::new); // dodaję je do nowo utworzonej tablicy
+
             scanner.close();
 
             return new NonFoodProduct(name, prices);
@@ -34,10 +35,17 @@ public class NonFoodProduct extends Product{
 
     @Override
     public double getPrice(int year, int month) {
-        //if(month < 1 || month > 12) {throw new IndexOutOfBoundsException();}
-        if((year == 2010 || month < 1) || year > 2022 || (year == 2022 || month > 12)){
+        Date current = new Date(year,month,1);
+        Date top = new Date(2022, Calendar.APRIL,1);
+        Date down = new Date(2010, Calendar.JANUARY,1);
+        int firstyear = 2010;
+        if(current.before(top) && current.after(down)){
+            //System.out.println("gicior");
+        }
+        if(!(month > 0 && month < 13)){
             throw new IndexOutOfBoundsException();
         }
-        return 0;
+        int targetIndex = (year - firstyear) * 12 + month;
+        return prices[targetIndex];
     }
 }
