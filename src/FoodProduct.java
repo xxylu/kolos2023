@@ -66,7 +66,7 @@ public class FoodProduct extends Product{
 
             scanner.close();
 
-            return new FoodProduct(name, prices,provinces);
+            return new FoodProduct(name, prices, provinces);
 
         } catch (IOException e) {
             throw new RuntimeException(e);

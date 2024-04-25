@@ -14,8 +14,8 @@ public class Main {
         cart.addProduct(nonFoodProduct,40);
         cart.addProduct(foodProduct,1);
         cart.addProduct(nonFoodProduct2,40);
-        System.out.println("\n Wartość koszyka w lutym 2013: " + cart.getPrice( 2013,2));
+        System.out.println("\n Wartość koszyka w lutym 2010: " + cart.getPrice( 2010,2));
         System.out.println("\n Wartość koszyka w lutym 2016: " + cart.getPrice(2016,2));
-        System.out.println("\n Inflacja: " + cart.getInflation(2013,2,2016,2));
+        System.out.println("\n Inflacja: " + cart.getInflation(2010,3,2016,2));
     }
 }
