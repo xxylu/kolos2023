@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -46,6 +46,8 @@ public class FoodProduct extends Product{
         List<Double> prices = new ArrayList<>(List.of());
         FoodProduct foodProduct;
         List<String> provinces = new ArrayList<>(List.of());
+
+
         try {
             Scanner scanner = new Scanner(path);
             name = scanner.nextLine(); // odczytuję pierwszą linię i zapisuję ją jako nazwa

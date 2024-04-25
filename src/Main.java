@@ -11,9 +11,11 @@ public class Main {
         Product.addProducsts(nonFoodProduct2);
 
         Cart cart = new Cart();
-        cart.addProduct(nonFoodProduct,5);
+        cart.addProduct(nonFoodProduct,40);
         cart.addProduct(foodProduct,1);
         cart.addProduct(nonFoodProduct2,40);
-        System.out.println(cart.getPrice(2010,3));
+        System.out.println("\n Wartość koszyka w lutym 2013: " + cart.getPrice( 2013,2));
+        System.out.println("\n Wartość koszyka w lutym 2016: " + cart.getPrice(2016,2));
+        System.out.println("\n Inflacja: " + cart.getInflation(2013,2,2016,2));
     }
 }

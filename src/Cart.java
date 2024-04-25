@@ -20,13 +20,14 @@ public class Cart {
     }
 
     public double getInflation(int year1, int month1, int year2, int month2){
+        int months = (year2 - year1) * 12 + (month2 - month1);
         Date daneOne = new Date(year1,month1,0);
         Date daneTwo = new Date(year2,month2,0);
         if(daneTwo.after(daneOne)){
             double valueOne = getPrice(year1,month1);
             double valueTwo = getPrice(year2,month2);
 
-            double result = (valueTwo - valueOne) / valueOne * 100 / (month2 - month1) * 12;
+            double result = (valueTwo - valueOne) / valueOne * 100 / months * 12;
             return result;
         }
         return -1;
